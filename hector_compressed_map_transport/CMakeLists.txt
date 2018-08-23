@@ -100,6 +100,12 @@ target_link_libraries(map_to_image_node
   ${OpenCV_LIBRARIES}
 )
 
+add_executable(costmap_to_image_node src/costmap_to_image_node.cpp)
+
+target_link_libraries(costmap_to_image_node
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+)
 #############
 ## Install ##
 #############
@@ -116,6 +122,12 @@ target_link_libraries(map_to_image_node
 
 ## Mark executables and/or libraries for installation
 install(TARGETS map_to_image_node
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(TARGETS costmap_to_image_node
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
